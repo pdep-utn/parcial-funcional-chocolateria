@@ -7,6 +7,7 @@ almendra = ("Almendra", 35)
 ddl = ("ddl", 220)
 mousse = ("Mousse",20)
 praline = ("Praline", 5)
+ruhm = ("Licor",30)
 
 
 chocoDiabeticoPremium = Chocolate{
@@ -25,7 +26,7 @@ chocoNoDiabeticoPremium = Chocolate{
 }
 
 chocoPauer = Chocolate{
-  nombre = "normal",
+  nombre = "pauer",
   porcentajeCacao = 50,
   gramaje = 10,
   azucar =10,
@@ -42,7 +43,7 @@ chocoLate = Chocolate{
 
 main :: IO ()
 main = hspec $ do
-  describe "Cálculo de precio" $ do
+  describe "Tests  Cálculo de precio" $ do
     it "Dado un chocolate con el porcentaje mayor de cacao y es apto para diabéticos entonces el precio es el monto indicado * cantidad de gramos" $ do
       80 `shouldBe` precio chocoDiabeticoPremium
     it "Dado un chocolate con el porcentaje mayor de cacao y no es apto para diabéticos entonces el precio es el monto indicado * cantidad de gramos" $ do
@@ -51,8 +52,22 @@ main = hspec $ do
       40 `shouldBe` precio chocoPauer
     it "Dado un chocolate con el porcentaje menor de cacao y con pocos ingredientes entonces el precio es el monto indicado * cantidad de gramos" $ do
       20 `shouldBe` precio chocoLate
-  describe "Orden superior" $ do 
+  describe "Tests Orden superior" $ do 
     it "Dado un chocolate que tiene al menos un ingrediente con más del tope de calorías, entonces es bombón asesino" $ do 
       chocoPauer `shouldSatisfy` esBombonAsesino
     it "Dado un chocolate que no tiene un ingrediente con más del tope de calorías, entonces no es bombón asesino" $ do 
       chocoNoDiabeticoPremium `shouldNotSatisfy` esBombonAsesino
+    it "Dada un chocolate, se calcula el total de calorías en base a los ingrdientes" $ do
+      40 `shouldBe` totalCalorias chocoNoDiabeticoPremium
+    it "Dada una caja de chocolates que tiene al menos 3 chocolates que no son bombon asesino, entonces son aptos para niños" $ do
+      aptosParaNinios [chocoPauer,chocoLate,chocoDiabeticoPremium,chocoNoDiabeticoPremium] `shouldNotContain` [chocoPauer]
+  describe "Tests de procesos" $ do
+    it "Dado un proceso de frutalizado y un chocolate, entonces se agrega dicho elemento con las calorías correspondientes" $ do 
+      (ingredientes.frutalizado "Naranja" 10 ) chocoLate `shouldContain` [("Naranja",20)]
+    it "Dado un proceso dulceDeLeche y un chocolate, entonces se agrega dicho elemento con su calorías fijas" $ do
+      (ingredientes.dulceDeLeche) chocoLate `shouldContain` [("ddl",220)]
+    it "Dado un proceso dulceDeLeche y un chocolate, entonces se agrega al nombre el sufijo correspondiente" $ do
+      "late Tentacion" `shouldBe` (nombre.dulceDeLeche) chocoLate
+    it "Dado un proceso de celiaCrucera con una cantidad de gramos, entocnes se le suma dicha cantidad al nivel de azucar de un chocolate" $ do
+      45 `shouldBe` (azucar.celiaCrucera 30) chocoLate
+    

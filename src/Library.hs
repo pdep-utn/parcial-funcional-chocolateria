@@ -13,7 +13,10 @@ data Chocolate = Chocolate {
   gramaje:: Number,
   azucar ::Number,
   ingredientes :: [Ingrediente]
-} deriving (Show)
+} deriving (Eq)
+
+instance Show Chocolate where
+  show choco = nombre choco
 
 -- Punto 1
 cantidadDeIngredientes :: Chocolate -> Number
@@ -60,17 +63,17 @@ frutalizado fruta gramos = agregarIngrediente  (fruta, gramos * 2)
 
 
 dulceDeLeche :: Proceso
-dulceDeLeche choco = agregarIngrediente ("ddl",120) choco {
+dulceDeLeche choco = agregarIngrediente ("ddl",220) choco {
   nombre = nombre choco ++ " Tentacion"
 }
 
-azucarera :: Number -> Proceso
-azucarera gramos chocolate = chocolate {
+celiaCrucera :: Number -> Proceso
+celiaCrucera gramos chocolate = chocolate {
   azucar = azucar chocolate + gramos
 } 
 
 embriagadora :: Number -> Proceso
-embriagadora grados = azucarera 100 .agregarIngrediente ("Licor", min 30 grados)
+embriagadora grados = celiaCrucera 100 .agregarIngrediente ("Licor", min 30 grados)
 
 -- Punto 4
 type Receta = [Proceso]
