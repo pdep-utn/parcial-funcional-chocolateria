@@ -13,7 +13,7 @@ data Chocolate = Chocolate {
   gramaje:: Number,
   azucar ::Number,
   ingredientes :: [Ingrediente]
-} deriving (Eq)
+} deriving ( Eq)
 
 instance Show Chocolate where
   show choco = nombre choco
@@ -37,14 +37,17 @@ esAptoDiabeticos = (==0).azucar
 -- Punto 2 
 type Caja = [Chocolate]
 
-calorias ::Ingrediente -> Calorias
-calorias (_,calorias) = calorias
+caloriasIngrediente ::Ingrediente -> Calorias
+caloriasIngrediente = snd
+
+nombreIngrediente ::Ingrediente -> String
+nombreIngrediente = fst
 
 esBombonAsesino :: Chocolate -> Bool
-esBombonAsesino = any ((>200).calorias).ingredientes
+esBombonAsesino = any ((>200).caloriasIngrediente).ingredientes
 
 totalCalorias :: Chocolate -> Calorias
-totalCalorias = sum.map calorias.ingredientes 
+totalCalorias = sum.map caloriasIngrediente.ingredientes 
 
 aptosParaNinios :: Caja -> Caja
 aptosParaNinios = take 3.filter (not.esBombonAsesino)
@@ -83,15 +86,15 @@ prepararChocolate = foldr ($)
 
 --Punto 5
 data Persona = Persona {
-  noLeGusta:: Chocolate -> Bool,
+  noLeGusta:: Ingrediente -> Bool,
   limiteDeSaturacion:: Calorias
 }
 
 hastaAcaLlegue:: Persona -> [Chocolate] -> [Chocolate]
 hastaAcaLlegue _ [] = [] 
-hastaAcaLlegue persona (chocolate:chocolates) | noLeGusta persona chocolate = hastaAcaLlegue persona chocolates
+hastaAcaLlegue persona (chocolate:chocolates) | any (noLeGusta persona).ingredientes $ chocolate = hastaAcaLlegue persona chocolates
  | (<=0).limiteDeSaturacion.come persona $ chocolate = []
- | otherwise = chocolate:hastaAcaLlegue persona chocolates
+ | otherwise = chocolate:hastaAcaLlegue (come persona chocolate) chocolates
 
 come :: Persona -> Chocolate -> Persona 
 come persona choco = persona {limiteDeSaturacion = limiteDeSaturacion persona - totalCalorias choco }
