@@ -24,7 +24,7 @@ cantidadDeIngredientes = length.ingredientes
 
 precio choco | ((>60).porcentajeCacao) choco = gramaje choco * precioPorGramoPremium choco
  | ((>4).cantidadDeIngredientes) choco = (8 *).cantidadDeIngredientes $ choco
- | otherwise = gramaje choco * 1
+ | otherwise = gramaje choco * 1.5
 
 precioPorGramoPremium:: Chocolate -> Number
 precioPorGramoPremium choco | esAptoDiabeticos choco = 8

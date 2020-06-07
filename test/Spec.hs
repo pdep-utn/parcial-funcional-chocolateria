@@ -72,7 +72,7 @@ main = hspec $ do
     it "Dado un chocolate con el porcentaje menor de cacao y con muchos ingredientes entonces el precio es el monto indicado * cantidad de ingredientes" $ do
       40 `shouldBe` precio chocoPauer
     it "Dado un chocolate con el porcentaje menor de cacao y con pocos ingredientes entonces el precio es el monto indicado * cantidad de gramos" $ do
-      20 `shouldBe` precio chocoLate
+      30 `shouldBe` precio chocoLate
   describe "Tests Orden superior" $ do 
     it "Dado un chocolate que tiene al menos un ingrediente con más del tope de calorías, entonces es bombón asesino" $ do 
       chocoPauer `shouldSatisfy` esBombonAsesino
