@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Juancete/chocolateria.svg?token=7kn2iattJERWx3nrSmdM&branch=master)](https://travis-ci.com/Juancete/chocolateria)
 
+![Cover](images/chocolate_cocoa_spoon.jpg)
 
 ### Temas a evaluar
 - [ ] Composición 
@@ -23,10 +24,10 @@ Lo que tenemos que determinar en primer lugar es cuanto nos sale cada chocolate:
 
 El *precio premium* varía si es apto para diabéticos (es decir que el chocolate tiene cero gramos de azucar) en cuyo caso es de $8 por gramo o bien es de $5 por gramo.
 
-### Punto 1
+### Punto 1 (4 puntos)
 Modelar el chocolate e implementar el cálculo de su precio.
 
-### Punto 2
+### Punto 2 (3 puntos)
 
 Necesitamos saber
 - Cuando un chocolate es **esBombonAsesino** que ocurre cuando tiene algún ingrediente de más de 200 calorías.
@@ -41,15 +42,32 @@ Excelente!! Ahora nos toca pensar que procesos podemos realizar sobre el chocola
 - Otro famoso proceoso es la **celiaCrucera** que dad auna cantidad de gramos, aumenta el nivel de azucar del chocolate.
 - Por último contamos con la **embriagadora**  que para un determinado grado de alcohol aporta como ingrediente Licor con una caloría por cada grado de alcohol con un tope máximo de 30 calorías. Es decir que si agregamos una bebida con 40 grados, son 30 calorías de licor. En cambio si ponemos una bebida con 20 grados, son 20 calorías aportadas. Además agrega 100 gramos de azucar. 
   
-### Punto 3 
-Modelar los procesos sobre el chocolate. 
+### Punto 3 (3 puntos)
+Modelar cada uno de los procesos sobre el chocolate. Tengamos en cuenta que a futuro podemos implementar nuevos procesos para generar chocolates más novedosos. Evitar la repetición de lógica y código. 
 
-### Punto 4
-Implementar la preparación de un chocolate que en base a un chocolate base y una serie de procesos, obtenemos el chocolate resultante. 
+### Punto 4 (1 punto)
+Dar un ejemplo de una receta que conste de los siguientes procesos: agrega 10 gramos d Naranja, dulce de leche y un licor de 32 grados.
+
+### Punto 5 (2 puntos)
+Implementar la preparación de un chocolate que en base a un chocolate base y una serie de procesos para obtener el chocolate resultante. En este punto **NO se puede utilizar recursividad.**
 
 ## ¡Última parte!
-Por otra parte tenemos a las personas, de las cuales se sabe que tienen un límite de daturación para las calorías y además tienen un determinado criterio para rechazar ciertos ingredientes. Por ejemplo a Juan no le gusta la Naranja y a Cecilia no le gusta que tenga algún ingrediente pesado (de más de 200 calorías). Cada persona podría tener un criterio distinto. 
+Por otra parte tenemos a las personas, de las cuales se sabe que tienen un límite de daturación para las calorías y además tienen un determinado criterio para rechazar ciertos ingredientes. Por ejemplo a Juan no le gusta la Naranja y a Cecilia no le gusta los ingredientes pesados (de más de 200 calorías). Cada persona podría tener un criterio distinto. 
 
-### Punto 5
+### Punto 6 (2 Puntos)
 
-Resolver la función **hastaAcaLlegue** que dada una persona y una caja de chocolates, devuelve los chocolates que puede comer. La persona come el chocolate mientras no tenga un ingrediente que rechaze por el criterio de la persona o bien porque al comerlo, todavía no llegó a su nivel de saturación de calorías. 
+Resolver la función **hastaAcaLlegue** que dada una persona y una caja de chocolates, devuelve los chocolates que puede comer. La persona come el chocolate mientras no tenga un ingrediente que rechaze por el criterio de la persona o bien porque al comerlo, todavía no llegó a su nivel de saturación de calorías. Este punto tiene que ser resuelto **utilizando recursividad**.
+
+### Punto 7 (1 Punto)
+Dada una caja de chocolates infinitos, es posible determinar cuales son los chocolates **aptosParaNinios** y el **totalCalorias**? Justifique su respuesta.
+
+## Puntajes
+Puntos | Nota
+------ | -----
+16 | 10
+15 | 9
+13 - 14 | 8
+11 - 12 | 7
+10 | 6
+9 - 10 | Revisión
+< 9 | Desaprobado
