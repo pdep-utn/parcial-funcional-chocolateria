@@ -48,20 +48,20 @@ Excelente!! Ahora nos toca pensar qué procesos podemos realizar sobre el chocol
 Modelar cada uno de los procesos sobre el chocolate. Tengamos en cuenta que a futuro podemos implementar nuevos procesos para generar chocolates más novedosos. Evitar la repetición de lógica y código.
  
 ## Punto 4 (1 punto)
-Dar un ejemplo de una receta que conste de los siguientes procesos: agrega 10 gramos d Naranja, dulce de leche y un licor de 32 grados.
+Dar un ejemplo de una receta que conste de los siguientes procesos: agrega 10 gramos de Naranja, dulce de leche y un licor de 32 grados.
  
 ## Punto 5 (2 puntos)
-Implementar la preparación de un chocolate que en base a un chocolate base y una serie de procesos para obtener el chocolate resultante. En este punto **NO se puede utilizar recursividad.**
+Implementar la preparación de un chocolate que a partir de un determinado chocolate tomado como base y una serie de procesos nos permite obtener el chocolate resultante. En este punto **NO se puede utilizar recursividad.**
  
 ## ¡Última parte!
-Por otra parte tenemos a las personas, de las cuales se sabe que tienen un límite de saturación para las calorías y además tienen un determinado criterio para rechazar ciertos ingredientes. Por ejemplo a Juan no le gusta la Naranja y a Cecilia no le gusta los ingredientes pesados (de más de 200 calorías). Cada persona podría tener un criterio distinto.
+Por otra parte tenemos a las personas, de las cuales se sabe que tienen un límite de saturación para las calorías que consumen y además tienen un criterio para rechazar ciertos ingredientes. Por ejemplo a Juan no le gusta la Naranja y a Cecilia no le gusta los ingredientes pesados (de más de 200 calorías). Cada persona podría tener un criterio distinto.
  
 ## Punto 6 (2 Puntos)
  
-Resolver la función **hastaAcaLlegue** que dada una persona y una caja de chocolates, devuelve los chocolates que puede comer. La persona come el chocolate mientras no tenga un ingrediente que rechace por el criterio de la persona o bien porque al comerlo, todavía no llegó a su nivel de saturación de calorías. Este punto tiene que ser resuelto **utilizando recursividad**.
+Resolver la función **hastaAcaLlegue** que dada una persona y una caja de chocolates, devuelve los chocolates que puede comer. La persona come el chocolate mientras no tenga un ingrediente que rechace por el criterio de la persona o bien porque al comerlo, todavía no alcance su nivel de saturación de calorías. Este punto tiene que ser resuelto **utilizando recursividad**.
  
 ## Punto 7 (1 Punto)
-Dada una caja de chocolates infinitos, es posible determinar cuales son los chocolates **aptosParaNinios** y el **totalCalorias**? Justifique su respuesta.
+Dada una caja de chocolates infinitos ¿es posible determinar cuales son los chocolates **aptosParaNinios** y el **totalCalorias**? Justifique su respuesta.
  
 ## Puntajes
 Puntos | Nota
