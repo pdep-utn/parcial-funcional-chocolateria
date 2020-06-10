@@ -39,10 +39,11 @@ Necesitamos saber
 ## Segunda Parte
  
 Excelente!! Ahora nos toca pensar qué procesos podemos realizar sobre el chocolate. Si bien hay fanáticos del chocolate amargo (como quien les escribe) también podemos realizar modificaciones o agregados:
-- Por ejemplo el **frutalizado** permite agregarle como ingrediente una cierta cantidad de gramos de una fruta. Toda fruta tiene dos calorías por cada gramo.
-- Un clásico es el **dulceDeLeche** que agrega dicho ingrediente el cual siempre siempre aporta 220 calorías. Además al nombre del chocolate le agrega al final la palabra *"tentación"*: Por ejemplo el *"Chocolate con almendras"* pasa a ser *"Chocolate con almendras tentación"*.
-- Otro famoso proceso es la **celiaCrucera** que dada una cantidad de gramos, aumenta el nivel de azúcar del chocolate.
-- Por último contamos con la **embriagadora**  que para un determinado grado de alcohol aporta como ingrediente Licor con una caloría por cada grado de alcohol con un tope máximo de 30 calorías. Es decir que si agregamos una bebida con 40 grados, son 30 calorías de licor. En cambio si ponemos una bebida con 20 grados, son 20 calorías aportadas. Además agrega 100 gramos de azúcar.
+- Por ejemplo el **frutalizado** permite agregarle como ingrediente una cierta cantidad de gramos de una fruta. Toda fruta tiene dos calorías por cada gramo. El peso de la fruta no afecta al gramaje del chocolate.
+- Un clásico es el **dulceDeLeche** que agrega dicho ingrediente el cual siempre aporta 220 calorías. Además al nombre del chocolate le agrega al final la palabra *"tentación"*: Por ejemplo el *"Chocolate con almendras"* pasa a ser *"Chocolate con almendras tentación"*.
+- Otro famoso proceso es la **celiaCrucera** que dada una cierta cantidad de gramos de azúcar, aumenta el nivel en el chocolate. Este peso tampoco afecta al gramaje del chocolate.
+- Por último contamos con la **embriagadora**  que para un determinado grado de alcohol aporta como ingrediente Licor con una caloría por cada grado de alcohol, teniendo un tope máximo de 30 calorías. Es decir que si agregamos una bebida con 40 grados, son 30 calorías de licor. En cambio si ponemos una bebida con 20 grados, son 20 calorías aportadas. Además agrega 100 gramos de azúcar.
+  
  ## Punto 3 (3 puntos)
 Modelar cada uno de los procesos sobre el chocolate. Tengamos en cuenta que a futuro podemos implementar nuevos procesos para generar chocolates más novedosos. Evitar la repetición de lógica y código.
  
