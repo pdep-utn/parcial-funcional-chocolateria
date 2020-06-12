@@ -79,7 +79,7 @@ Este punto tiene que ser resuelto **utilizando recursividad**.
  
 ## Punto 7 (1 Punto)
 
-Dada una caja de chocolates infinitos ¿es posible determinar cuales son los chocolates **aptosParaNinios** y el **totalCalorias**? Justifique su respuesta.
+Dada una caja de chocolates infinitos ¿es posible determinar cuáles son los chocolates **aptosParaNinios** y el **totalCalorias**? Justifique su respuesta, relacionándolo con un concepto visto en la materia.
  
 ## Puntajes
 
