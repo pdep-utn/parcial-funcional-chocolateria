@@ -35,7 +35,7 @@ Modelar el chocolate e implementar el cálculo de su precio en base a la descrip
 Necesitamos saber
 
 - Cuándo un chocolate **esBombonAsesino** que ocurre cuando tiene algún ingrediente de más de 200 calorías.
-- También queremos saber el **totalDeCalorias** para un chocolate que es la sumatoria de los aportes de cada ingrediente.
+- También queremos saber el **totalCalorias** para un chocolate que es la sumatoria de los aportes de cada ingrediente.
 - Y por último, dada una caja de chocolates, queremos tomar los chocolates **aptoParaNinios** donde separamos 3 chocolates que no sean bombones asesinos, sin importar cuáles.
  
 ## Segunda Parte

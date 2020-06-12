@@ -81,10 +81,14 @@ embriagadora grados = celiaCrucera 100 .agregarIngrediente ("Licor", min 30 grad
 -- Punto 4
 type Receta = [Proceso]
 
+recetaPunto4 :: Receta
+recetaPunto4 = [frutalizado "naranja" 10, dulceDeLeche, embriagadora 32]
+
+-- Punto 5
 prepararChocolate:: Chocolate -> Receta -> Chocolate
 prepararChocolate = foldr ($)
 
---Punto 5
+--Punto 6
 data Persona = Persona {
   noLeGusta:: Ingrediente -> Bool,
   limiteDeSaturacion:: Calorias
@@ -99,4 +103,6 @@ hastaAcaLlegue persona (chocolate:chocolates) | any (noLeGusta persona).ingredie
 come :: Persona -> Chocolate -> Persona 
 come persona choco = persona {limiteDeSaturacion = limiteDeSaturacion persona - totalCalorias choco }
 
--- Punto 6
+-- Punto 7
+-- aptosParaNinios puede terminar porque toma los 3 primeros bombones, mientras cumpla está todo bien
+-- totalCalorias no converge porque queremos obtener la sumatoria de la lista infinita
