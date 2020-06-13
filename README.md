@@ -35,7 +35,7 @@ Modelar el chocolate e implementar el cálculo de su precio en base a la descrip
 Necesitamos saber
 
 - Cuándo un chocolate **esBombonAsesino** que ocurre cuando tiene algún ingrediente de más de 200 calorías.
-- También queremos saber el **totalDeCalorias** para un chocolate que es la sumatoria de los aportes de cada ingrediente.
+- También queremos saber el **totalCalorias** para un chocolate que es la sumatoria de los aportes de cada ingrediente.
 - Y por último, dada una caja de chocolates, queremos tomar los chocolates **aptoParaNinios** donde separamos 3 chocolates que no sean bombones asesinos, sin importar cuáles.
  
 ## Segunda Parte
@@ -65,13 +65,11 @@ Por otra parte tenemos a las personas, de las cuales se sabe que tienen un lími
  
 ## Punto 6 (2 Puntos)
  
-Resolver la función **hastaAcaLlegue** que dada una persona y una caja de chocolates, devuelve los chocolates que puede comer. La persona comerá todos los chocolates que pueda hasta que
-- haya un ingrediente que rechace por el criterio de la persona
-- al comerlo alcance su nivel de saturación de calorías. 
+Resolver la función **hastaAcaLlegue** que dada una persona y una caja de chocolates, devuelve los chocolates que puede comer. La persona comerá todos los chocolates que pueda hasta que llegue al nivel de saturación de calorías. Al mismo tiempo debe descartar los chocolates que tengan un ingrediente que rechace por el criterio de la persona.
 
-Es decir, si tenemos 4 chocolates de 300, 400, 150 y 50 calorías respectivamente, y Juan tiene un límite de 800 calorías, la función debe devolver los dos primeros chocolates (no importa que Juan pudiera comer el último chocolate).
+Es decir, si tenemos 4 chocolates de 300, 400, 150 y 50 calorías respectivamente, y Juan tiene un límite de 800 calorías, la función debe devolver los tres primeros chocolates (por más que a Juan le hubiera encantado comer el último chocolate). Esto es porque cuando come el tercer chocolate suma 850 calorías que es más que el tope de 800 calorías.
 
-Si tenemos 4 chocolates, en el segundo chocolate hay naranja y en los otros tres no, para el caso de Juan la función debe devolver una lista con solo el primer chocolate (por más que los otros tres sean apetecibles para Juan).
+Si tenemos 4 chocolates, todos de 100 calorías, en el segundo chocolate hay naranja y en los otros tres no. Recordemos que a Juan no le gusta la naranja y soporta 800 calorías. Si invocamos la función con Juan y estos 4 chocolates, nos debe devolver una lista con los chocolates que originalmente están en la posición 1, 3 y 4, descartando el chocolate de naranja y teniendo en cuenta que los tres bombones suman 300 calorías < 800 de tope.
 
 > Tener en cuenta que el criterio de aceptación depende de cada persona.
 
@@ -79,7 +77,7 @@ Este punto tiene que ser resuelto **utilizando recursividad**.
  
 ## Punto 7 (1 Punto)
 
-Dada una caja de chocolates infinitos ¿es posible determinar cuáles son los chocolates **aptosParaNinios** y el **totalCalorias**? Justifique su respuesta, relacionándolo con un concepto visto en la materia.
+Dada una caja de chocolates infinitos ¿es posible determinar cuáles son los chocolates **aptosParaNinios** y si existiese una función **totalCalorias'** que calcula el total de calorías para una caja de chocolate? Justifique su respuesta, relacionándolo con un concepto visto en la materia.
  
 ## Puntajes
 

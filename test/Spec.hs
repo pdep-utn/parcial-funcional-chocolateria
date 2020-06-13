@@ -101,4 +101,6 @@ main = hspec $ do
       chocoNoDiabeticoPremium `shouldBe` prepararChocolate chocoNoDiabeticoPremiumBase [frutalizado "Frutilla" 10, dulceDeLeche]
   describe "Test recursividad" $ do 
     it "Dada una caja de chocolates y una persona entonces para cuando se satura" $ do
-      hastaAcaLlegue fede [chocoPauer,chocoLate,chocoLinas,chocoDiabeticoPremium] `shouldMatchList` [chocoLate,chocoLinas]
+      hastaAcaLlegue fede [chocoLate,chocoLinas,chocoDiabeticoPremium, chocoLinas, chocoLinas] `shouldMatchList` [chocoLate,chocoLinas]
+    it "Dada una caja de chocolates y una persona filtra las que no le gusta" $ do
+      hastaAcaLlegue fede [chocoPauer,chocoNoDiabeticoPremium, chocoDiabeticoPremium, chocoLate,chocoLinas,chocoNoDiabeticoPremium] `shouldMatchList` [chocoDiabeticoPremium,chocoLate]
