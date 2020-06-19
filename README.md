@@ -1,6 +1,6 @@
 # Haskellate
  
-[![Build Status](https://travis-ci.com/Juancete/chocolateria.svg?token=7kn2iattJERWx3nrSmdM&branch=master)](https://travis-ci.com/Juancete/chocolateria)
+[![Build Status](https://travis-ci.com/pdep-utn/parcial-funcional-chocolateria.svg?branch=master)](https://travis-ci.com/pdep-utn/parcial-funcional-chocolateria)
  
 ![Cover](images/chocolate_cocoa_spoon.jpg)
  
