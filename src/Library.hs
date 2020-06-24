@@ -129,10 +129,10 @@ hastaAcaLlegue _ [] = []
 hastaAcaLlegue persona (chocolate:chocolates) | any (noLeGusta persona).ingredientes $ chocolate = hastaAcaLlegue persona chocolates
 -- Alternativa que evalúa después de comer el chocolate
 -- aquí se fija cómo está la persona, esto implica que pudo haber comido de más, pero solo un chocolatito más
- | (<=0).limiteDeSaturacion persona $ chocolate = []
+ | (<=0).limiteDeSaturacion $ persona  = []
+ | otherwise = chocolate:hastaAcaLlegue (come persona chocolate) chocolates
 -- Alternativa que evalúa antes de comer el chocolate
 -- | (<=0).limiteDeSaturacion.come persona $ chocolate = []
- | otherwise = chocolate:hastaAcaLlegue (come persona chocolate) chocolates
 
 come :: Persona -> Chocolate -> Persona 
 come persona choco = persona {limiteDeSaturacion = limiteDeSaturacion persona - totalCalorias choco }
