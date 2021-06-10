@@ -3,9 +3,11 @@ import PdePreludat
 
 type Nombre = String
 type Calorias = Number
-type Porcentaje = Number 
+type Gramos = Number
+type Porcentaje = Number
 
 type Ingrediente = (Nombre, Calorias)
+
 {-
 Otra alternativa es definir un Data
 
@@ -24,10 +26,11 @@ type Ingrediente = Calorias
 data Chocolate = Chocolate {
   nombre :: String,
   porcentajeCacao :: Porcentaje,
-  gramaje:: Number,
-  azucar ::Number,
+  gramaje:: Gramos,
+  porcentajeAzucar ::Porcentaje,
   ingredientes :: [Ingrediente]
 } deriving (Eq)
+
 {-
 El porcentaje de cacao podría modelarse como un ingrediente pero no matchea con lo modelado anteriormente.
 
@@ -37,6 +40,7 @@ Si adaptamos al ingrediente para que acepte un porcentaje o un gramaje y lo agre
 nos veremos forzados que cuando necesitemos acceder al porcentaje de chocolate, tenemos que hacer un find 
 para encontrar el ingrediente chocolate y luego acceder al porcentaje de chocolate.
 -}
+
 instance Show Chocolate where
   show choco = nombre choco
 
@@ -53,7 +57,7 @@ precioPorGramoPremium choco | esAptoDiabeticos choco = 8
  | otherwise = 5
 
 esAptoDiabeticos:: Chocolate -> Bool
-esAptoDiabeticos = (==0).azucar
+esAptoDiabeticos = (==0).porcentajeAzucar
 
 {-
 Creamos las funciones que nos permiten acceder a la tupla. En caso de optar por 
@@ -92,7 +96,7 @@ agregarIngrediente ingrediente chocolate = chocolate {
 }
 
 frutalizado :: String -> Number -> Proceso
-frutalizado fruta gramos = agregarIngrediente  (fruta, gramos * 2)
+frutalizado fruta unidades = agregarIngrediente  (fruta, unidades * 2)
 
 
 dulceDeLeche :: Proceso
@@ -100,13 +104,13 @@ dulceDeLeche choco = agregarIngrediente ("ddl",220) choco {
   nombre = nombre choco ++ " Tentacion"
 }
 
-celiaCrucera :: Number -> Proceso
-celiaCrucera gramos chocolate = chocolate {
-  azucar = azucar chocolate + gramos
+celiaCrucera :: Porcentaje -> Proceso
+celiaCrucera porcentaje chocolate = chocolate {
+  porcentajeAzucar = porcentajeAzucar chocolate + porcentaje
 } 
 
 embriagadora :: Number -> Proceso
-embriagadora grados = celiaCrucera 100 .agregarIngrediente ("Licor", min 30 grados)
+embriagadora grados = celiaCrucera 20 .agregarIngrediente ("Licor", min 30 grados)
 
 -- Punto 4
 type Receta = [Proceso]
