@@ -53,7 +53,7 @@ Modelar cada uno de los procesos sobre el chocolate. Tengamos en cuenta que a fu
  
 ## Punto 4 (1 punto)
 
-Dar un ejemplo de una receta que conste de los siguientes procesos: agregar 10 gramos de naranja, dulce de leche y un licor de 32 grados.
+Dar un ejemplo de una receta que conste de los siguientes procesos: agregar 10 unidades de naranja, dulce de leche y un licor de 32 grados.
  
 ## Punto 5 (2 puntos)
 
