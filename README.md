@@ -1,6 +1,6 @@
 # Haskellate
  
-[![Build Status](https://travis-ci.com/pdep-utn/parcial-funcional-chocolateria.svg?branch=master)](https://travis-ci.com/pdep-utn/parcial-funcional-chocolateria)
+[![build](https://github.com/pdep-utn/parcial-funcional-chocolateria/actions/workflows/build.yml/badge.svg)](https://github.com/pdep-utn/parcial-funcional-chocolateria/actions/workflows/build.yml)
  
 ![Cover](images/chocolate_cocoa_spoon.jpg)
  
@@ -24,7 +24,7 @@ La gente de marketing de la empresa nos sugirió que los chocolates tengan un no
  
 Lo que tenemos que determinar en primer lugar es cuánto nos sale cada chocolate: los chocolates amargos (que tienen más de un 60% de cacao) se calculan como el gramaje del chocolate multiplicado por el *precio premium*. Por el contrario, si tiene más de 4 ingredientes, el precio es de $8 por la cantidad de ingredientes que tiene. Caso contrario, el costo es de $1,5 por gramo.
  
-El *precio premium* varía si es apto para diabéticos (es decir que el chocolate tiene cero gramos de azúcar) en cuyo caso es de $8 por gramo o bien es de $5 por gramo.
+El *precio premium* varía si es apto para diabéticos (es decir que el chocolate tiene porcentaje cero de azúcar) en cuyo caso es de $8 por gramo o bien es de $5 por gramo.
  
 ## Punto 1 (3 puntos)
 
@@ -40,12 +40,12 @@ Necesitamos saber
  
 ## Segunda Parte
  
-¡¡Excelente!! Ahora nos toca pensar qué procesos podemos realizar sobre el chocolate. Si bien hay fanáticos del chocolate amargo (como quien les escribe) también podemos realizar modificaciones o agregados:
+¡¡Excelente!! Ahora nos toca pensar qué procesos podemos realizar sobre el chocolate. La acción de agregar un ingrediente **no** incrementa el gramaje del chocolate: el mismo ya está contemplado en el valor establecido. Si bien hay fanáticos del chocolate amargo (como quien les escribe) también podemos realizar modificaciones o agregados:
 
-- Por ejemplo el **frutalizado** permite agregarle como ingrediente una cierta cantidad de gramos de una fruta. Toda fruta tiene dos calorías por cada gramo. El peso de la fruta no afecta al gramaje del chocolate.
+- Por ejemplo el **frutalizado** permite agregarle como ingrediente una cierta cantidad de unidades de una fruta. Toda fruta tiene dos calorías por cada unidad. 
 - Un clásico es el **dulceDeLeche** que agrega dicho ingrediente el cual siempre aporta 220 calorías. Además al nombre del chocolate le agrega al final la palabra *"tentación"*: Por ejemplo el *"Chocolate con almendras"* pasa a ser *"Chocolate con almendras tentación"*.
-- Otro famoso proceso es la **celiaCrucera** que dada una cierta cantidad de gramos de azúcar, aumenta el nivel en el chocolate. Este peso tampoco afecta al gramaje del chocolate.
-- Por último contamos con la **embriagadora** que para un determinado grado de alcohol aporta como ingrediente Licor con una caloría por cada grado de alcohol, hasta un máximo de 30 calorías. Es decir que si agregamos una bebida con 40 grados, son 30 calorías de licor. En cambio si ponemos una bebida con 20 grados, son 20 calorías aportadas. Además agrega 100 gramos de azúcar.
+- Otro famoso proceso es la **celiaCrucera** que dada un cierto porcentaje de azúcar, aumenta el nivel del mismo en el chocolate. 
+- Por último contamos con la **embriagadora** que para un determinado grado de alcohol aporta como ingrediente Licor con una caloría por cada grado de alcohol, hasta un máximo de 30 calorías. Es decir que si agregamos una bebida con 40 grados, son 30 calorías de licor. En cambio si ponemos una bebida con 20 grados, son 20 calorías aportadas. Además agrega un porcentaje de 20 en azúcar.
   
 ## Punto 3 (3 puntos)
 

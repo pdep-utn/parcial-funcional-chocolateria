@@ -1,5 +1,5 @@
-import PdePreludat
 import Library
+import PdePreludat
 import Test.Hspec
 
 naranja = ("Naranja",20)
@@ -14,21 +14,21 @@ chocoDiabeticoPremium = Chocolate{
   nombre = "Castillo",
   porcentajeCacao = 70,
   gramaje = 10,
-  azucar =0,
+  porcentajeAzucar =0,
   ingredientes = [naranja]
 }
 chocoNoDiabeticoPremiumBase = Chocolate{
   nombre = "amargo",
   porcentajeCacao = 70,
   gramaje = 10,
-  azucar =10,
+  porcentajeAzucar =10,
   ingredientes = []
 }
 chocoNoDiabeticoPremium = Chocolate{
   nombre = "amargo Tentacion",
   porcentajeCacao = 70,
   gramaje = 10,
-  azucar =10,
+  porcentajeAzucar =10,
   ingredientes = [frutilla, ddl]
 }
 
@@ -36,7 +36,7 @@ chocoPauer = Chocolate{
   nombre = "pauer",
   porcentajeCacao = 50,
   gramaje = 10,
-  azucar =10,
+  porcentajeAzucar =10,
   ingredientes = [frutilla,mousse,ddl,almendra,praline]
 }
 
@@ -44,7 +44,7 @@ chocoLate = Chocolate{
   nombre = "late",
   porcentajeCacao = 40,
   gramaje = 20,
-  azucar =15,
+  porcentajeAzucar =15,
   ingredientes = [praline]
 }
 
@@ -53,7 +53,7 @@ chocoLinas = Chocolate{
   nombre = "linas",
   porcentajeCacao = 40,
   gramaje = 20,
-  azucar =15,
+  porcentajeAzucar =15,
   ingredientes = [praline,mousse]
 }
 
@@ -66,20 +66,20 @@ main :: IO ()
 main = hspec $ do
   describe "Tests  Cálculo de precio" $ do
     it "Dado un chocolate con el porcentaje mayor de cacao y es apto para diabéticos entonces el precio es el monto indicado * cantidad de gramos" $ do
-      80 `shouldBe` precio chocoDiabeticoPremium
+      precio chocoDiabeticoPremium `shouldBe` 80
     it "Dado un chocolate con el porcentaje mayor de cacao y no es apto para diabéticos entonces el precio es el monto indicado * cantidad de gramos" $ do
-      50 `shouldBe` precio chocoNoDiabeticoPremium
+      precio chocoNoDiabeticoPremium `shouldBe` 50
     it "Dado un chocolate con el porcentaje menor de cacao y con muchos ingredientes entonces el precio es el monto indicado * cantidad de ingredientes" $ do
-      40 `shouldBe` precio chocoPauer
+      precio chocoPauer `shouldBe` 40
     it "Dado un chocolate con el porcentaje menor de cacao y con pocos ingredientes entonces el precio es el monto indicado * cantidad de gramos" $ do
-      30 `shouldBe` precio chocoLate
+      precio chocoLate `shouldBe` 30
   describe "Tests Orden superior" $ do 
     it "Dado un chocolate que tiene al menos un ingrediente con más del tope de calorías, entonces es bombón asesino" $ do 
       chocoPauer `shouldSatisfy` esBombonAsesino
     it "Dado un chocolate que no tiene un ingrediente con más del tope de calorías, entonces no es bombón asesino" $ do 
       chocoLate `shouldNotSatisfy` esBombonAsesino
     it "Dada un chocolate, se calcula el total de calorías en base a los ingrdientes" $ do
-      240 `shouldBe` totalCalorias chocoNoDiabeticoPremium
+      totalCalorias chocoNoDiabeticoPremium `shouldBe` 240
     it "Dada una caja de chocolates que tiene al menos 3 chocolates que no son bombon asesino, entonces son aptos para niños" $ do
       aptosParaNinios [chocoPauer,chocoLate,chocoDiabeticoPremium,chocoNoDiabeticoPremium] `shouldNotContain` [chocoPauer]
   describe "Tests de procesos" $ do
@@ -88,15 +88,15 @@ main = hspec $ do
     it "Dado un proceso dulceDeLeche y un chocolate, entonces se agrega dicho elemento con su calorías fijas" $ do
       (ingredientes.dulceDeLeche) chocoLate `shouldContain` [("ddl",220)]
     it "Dado un proceso dulceDeLeche y un chocolate, entonces se agrega al nombre el sufijo correspondiente" $ do
-      "late Tentacion" `shouldBe` (nombre.dulceDeLeche) chocoLate
-    it "Dado un proceso de celiaCrucera con una cantidad de gramos, entocnes se le suma dicha cantidad al nivel de azucar de un chocolate" $ do
-      45 `shouldBe` (azucar.celiaCrucera 30) chocoLate
+      (nombre.dulceDeLeche) chocoLate `shouldBe` "late Tentacion"
+    it "Dado un proceso de celiaCrucera con un porcentaje, entonces se le suma dicha cantidad al nivel de porcentajeAzucar de un chocolate" $ do
+      (porcentajeAzucar.celiaCrucera 30) chocoLate `shouldBe` 45
     it "Dada una embriagadora con un grado menor al esperado y un chocolate, entonces se agrega el elemento con las calorías resultantes del cálculo" $ do 
       (ingredientes.embriagadora 20) chocoLate `shouldContain` [("Licor",20)]
     it "Dada una embriagadora con un grado mayor al esperado y un chocolate, entonces se agrega el elemento con las calorías resultantes del cálculo" $ do 
       (ingredientes.embriagadora 50) chocoLate `shouldContain` [("Licor",30)]
-    it "Dada una embriagadora con un grado menor al esperado y un chocolate, aumenta el nivel de azucar en un valor fijo" $ do 
-      115 `shouldBe` (azucar.embriagadora 20) chocoLate
+    it "Dada una embriagadora con un grado menor al esperado y un chocolate, aumenta el nivel de porcentajeAzucar en un valor fijo" $ do 
+       (porcentajeAzucar.embriagadora 20) chocoLate `shouldBe` 35
     it "Dada una receta se prepara el chocolate" $ do 
       chocoNoDiabeticoPremium `shouldBe` prepararChocolate chocoNoDiabeticoPremiumBase [frutalizado "Frutilla" 10, dulceDeLeche]
   describe "Test recursividad" $ do 
